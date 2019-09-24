@@ -12,7 +12,7 @@ public class PessoaTester {
          //System.out.println(p1.toString());
          
          Aluno a1 = new Aluno();
-         a1.setNome("Izabella");
+         a1.setNome("Isabella Freitas");
          a1.setIdade(24);
          a1.setSexo("Feminino");
          a1.setMatricula("0050010533");
