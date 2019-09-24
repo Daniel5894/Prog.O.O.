@@ -3,6 +3,7 @@ package trabalho;
 import java.util.Date;
 import java.util.Random;
 
+
 public class Partida implements IPartida
 {
    private int scoreVisitante;
@@ -10,36 +11,33 @@ public class Partida implements IPartida
    private Date dataPartida;
    private Time visitante;
    private Time local;
+ 
    
-//construtor   
-   public Partida()
-   {
-	 /*Time visitante = new Time();
-	 Time local = new Time();
-	 visitante.setNome("Flamengo");
-	 local.setNome("Vasco"); */
-   }
-   
-   @Override
+  @Override
+
 	public void iniciarPartida(Time timeLocal, Time timeVisitante) 
 	{
 		Random r = new Random();
+                
 		this.scoreVisitante = r.nextInt(10);
 		this.scoreLocal = r.nextInt(10);
 		this.local = timeLocal;
 		this.visitante = timeVisitante;
+                
 	}
+
+
 
 	@Override
 	public void mostraResultado() 
 	{
-		System.out.println(this.visitante.getNome() + " "+ this.scoreVisitante + "x" +  this.scoreLocal +" " +  this.local.getNome());
-	 	
+	System.out.println(this.visitante.getNome() + " "+ this.scoreVisitante + "x" +  this.scoreLocal +" " +  this.local.getNome());
 	}
 
 	@Override
 	public void finalizarPartida() 
 	{
+            
 		int vit = 0, der = 0 ,emp = 0, pts = 0;
 		if (scoreVisitante > scoreLocal)
 		{
@@ -68,7 +66,10 @@ public class Partida implements IPartida
 			visitante.setQtdPontos(pts);
 			local.setQtdPontos(pts);
 		}
-		
-	}   
-   
+                        
+
+	}
+    
+
+
 }

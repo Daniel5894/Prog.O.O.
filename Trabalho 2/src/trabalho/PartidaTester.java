@@ -1,29 +1,52 @@
 package trabalho;
 
+import java.util.Scanner;
+
+
 public class PartidaTester {
 
-	public static void main(String[] args) 
-	{
-      Partida p1 = new Partida();
-     
-     Time t1 = new Time();
-      t1.setNome("Flamengo");
-      
-      Time t2 = new Time();
-      t2.setNome("Fluminese");
-      
-      
-      p1.iniciarPartida(t1, t2);
-      p1.mostraResultado();
-      p1.finalizarPartida();
-      t1.listar();
-      t2.listar();
-      /*System.out.println("time v: " + t1.getNome());
-      System.out.println("time l: " + t2.getNome());*/
-   
-      
+    public static void main(String[] args) {
        
-       
-	}
+            Partida p1 = new Partida();
 
-}
+	    Time l = new Time();      
+	    Time v = new Time();
+
+      	    Scanner leitura = new Scanner(System.in);
+            int aux = 0;
+            
+		
+
+	    System.out.println("Time Local: ");
+		String t1 = leitura.next();
+		l.setNome(t1);
+		System.out.println("\nTime Visitante: ");
+		String t2 = leitura.next();
+		v.setNome(t2);   
+                
+            
+    do
+    {
+		p1.iniciarPartida(l, v);
+		p1.mostraResultado();
+		p1.finalizarPartida();
+                
+        System.out.println("Deseja realizar outra partida? Digite 'sim' ou 'nao'");
+        String resp = leitura.next();
+      if(resp.equalsIgnoreCase("nao"))
+       {	       
+          aux = 1;
+       }
+               
+    }
+        while(aux != 1);
+
+		v.listar();
+
+		l.listar(); 
+
+		
+
+	 }
+  
+ }
