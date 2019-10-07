@@ -2,25 +2,26 @@ package Polimorfismo;
 
 public class Ave extends Animal
 {
+   private String corPena;
 
 	@Override
 	public void locomover() 
 	{
-		System.out.println("Ave est· voando!");
+		System.out.println("Ave est√° voando!");
 		
 	}
 
 	@Override
 	public void alimentar() 
 	{
-		System.out.println("Ave est· se alimentando");
+		System.out.println("Ave est√° se alimentando");
 		
 	}
 
 	@Override
 	public void emitirSom() 
 	{
-		System.out.println("Ave est· cantando");
+		System.out.println("Ave est√° cantando");
 		
 	}
 
