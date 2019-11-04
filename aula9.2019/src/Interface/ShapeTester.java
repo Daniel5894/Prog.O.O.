@@ -1,23 +1,36 @@
 package Interface;
 
-public class ShapeTester {
+import java.util.InputMismatchException;
+import java.util.Scanner;
+public class ShapeTester 
+{
+  public static void main(String[] args)
+  {
+    Scanner input = new Scanner(System.in);
+   boolean aux = true;
+   do
+   {
+     try
+     {	
+    System.out.println("Retângulo");
 
-	public static void main(String[] args) 
-	{
-		System.out.println("RETANGULO");
-		Retangulo ret = new Retangulo (7,6);
-		//System.out.println("Area = " +  ret.getArea() );
-		//System.out.println("Perimetro = " +  ret.getPerimetro() );
-		ret.Imprimir();
-
-		System.out.println("TRIANGULO");
-		Triangulo tri = new Triangulo (7,5,6);
-		tri.Imprimir();
-		
-		
-		System.out.println("CIRCULO");
-		Circulo cir = new Circulo (7);
-		cir.Imprimir();
-	}
-
+    System.out.println("Altura:");
+	float altura = input.nextFloat();
+	System.out.println("Base:");
+	float base = input.nextFloat();
+	Retangulo retangulo = new Retangulo(altura,base);
+	retangulo.getPerimetro();
+	retangulo.Imprimir();
+	aux = false;
+     }
+   catch(InputMismatchException e1)
+    {
+    System.out.println("Digite apenas número!");
+    }
+     finally
+     {
+    	 input.nextLine(); 
+     }
+   } while(aux == true);
+  }
 }
