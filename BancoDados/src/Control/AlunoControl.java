@@ -21,6 +21,31 @@ public class AlunoControl
 		}
 	}
 
+	public void delete(Aluno aluno)
+	{		
+		try 
+		{
+			AlunoDAO dao = new AlunoDAO();
+			dao.delete(aluno);
+		} 
+		finally 
+		{
+			System.out.println("Fim da remoção!");
+		}	
+	}
+	public void update(Aluno aluno)
+	{	
+		try 
+		{
+			AlunoDAO dao = new AlunoDAO();
+			dao.update(aluno);
+		} 
+		finally 
+		{
+			System.out.println("Fim da edição!");
+		}	
+	}
+	
 	public List<Aluno> readAll()
 	{
 		List<Aluno> alunos = new ArrayList<Aluno>();

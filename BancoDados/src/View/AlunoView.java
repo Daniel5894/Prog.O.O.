@@ -31,6 +31,47 @@ public class AlunoView
 	    }
     }
 	
+	public void delete()
+	{
+		try
+		{
+		Scanner sc = new Scanner(System.in);
+		
+		Aluno aluno = new Aluno();
+		AlunoControl control = new AlunoControl();
+		
+		System.out.println("Entre com a matricula do aluno que deseja excluir");
+		aluno.setMatricula(sc.nextLine());
+		
+		control.delete(aluno);
+		}
+	    catch(Exception e)
+	    {
+		System.out.println("Erro na tela de cadastro!");
+	    }
+    }
+	
+	public void update()
+	{
+		try
+		{
+		Scanner sc = new Scanner(System.in);
+		
+		Aluno aluno = new Aluno();
+		AlunoControl control = new AlunoControl();
+		
+		System.out.println("Entre com a matricula do aluno que você deseja alterar");
+		aluno.setMatricula(sc.nextLine());
+		System.out.println("Digite o novo nome");
+		aluno.setNome(sc.nextLine());
+		control.update(aluno);
+		}
+	    catch(Exception e)
+	    {
+		System.out.println("Erro na tela de cadastro!");
+	    }
+    }
+	
 	public void readAll()
 	{
 		AlunoControl control = new AlunoControl();
@@ -48,6 +89,9 @@ public class AlunoView
 	public static void main(String[] args) 
 	{
 		AlunoView crud = new AlunoView();
+		//crud.create();
+		//crud.delete();
+		crud.update();
 		crud.readAll();
     }
 }

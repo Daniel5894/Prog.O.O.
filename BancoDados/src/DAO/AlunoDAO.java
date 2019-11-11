@@ -17,7 +17,7 @@ public class AlunoDAO
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
-		String sql = "insert into aluno(matricula, nome) values (?,?)";
+		String sql = "INSERT INTO aluno(matricula, nome) VALUES (?,?)";
 		
 		try 
 		{
@@ -40,6 +40,59 @@ public class AlunoDAO
 
 	}
 
+	public void delete(Aluno aluno)
+	{
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "DELETE FROM aluno WHERE matricula = ?";
+		try 
+		{
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, aluno.getMatricula());
+			
+			stmt.executeUpdate();
+			System.out.println("Aluno removido com sucesso!");
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			System.out.println("Erro ao tentar remover aluno");
+	    }
+		finally
+		{
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+
+	}
+	
+	public void update(Aluno aluno)
+	{
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+        String sql = "UPDATE aluno SET nome= ? WHERE matricula= ? ";
+		try 
+		{
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, aluno.getNome());
+			stmt.setString(2, aluno.getMatricula());
+			
+			stmt.executeUpdate();
+			System.out.println("Aluno alterado com sucesso!");
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			System.out.println("Erro ao tentar alterar aluno");
+	    }
+		finally
+		{
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+
+	}
+	
 	public List<Aluno> readAll()
 	{
 		Connection con = ConnectionFactory.getConnection();
